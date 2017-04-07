@@ -120,17 +120,17 @@ void printMenuText(int selection) {
   lcd.setCursor(0, 1);
   if (selection == 0)
     lcd.print(F("Manual          "));
-  if (selection == 1)
+  else if (selection == 1)
     lcd.print(F("Set Time        "));
-  if (selection == 2)
+  else if (selection == 2)
     lcd.print(F("Set Schedule    "));
-  if (selection == 3)
+  else if (selection == 3)
     lcd.print(F("Auto            "));
-  if (selection == 4)
+  else if (selection == 4)
     lcd.print(F("Info            "));
-  if (selection == 5)
+  else if (selection == 5)
     lcd.print(F("Load Sched      "));
-  if (selection == 6)
+  else if (selection == 6)
     lcd.print(F("Save Sched      "));
 }
 
