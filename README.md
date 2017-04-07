@@ -5,4 +5,4 @@ This is meant to be run on an arduino with an
 [Adafruit Proto-Screwshield](http://www.adafruit.com/products/196).
 
 The libraries for the LCD shield are here:
-<https://github.com/adafruit/Adafruit-RGB-LCD-Shield-Library>
+<https://github.com/lincomatic/LiquidTWI2>

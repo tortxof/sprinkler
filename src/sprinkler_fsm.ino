@@ -2,7 +2,7 @@
 
 #include <EEPROM.h>
 #include <Wire.h>
-#include <Adafruit_RGBLCDShield.h>
+#include <LiquidTWI2.h>
 
 // lcd backlight color
 #define OFF 0x0
@@ -14,7 +14,7 @@
 #define VIOLET 0x5
 #define WHITE 0x7
 
-Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
+LiquidTWI2 lcd(0x20);
 
 const uint8_t EEPROM_START = 32;
 const uint16_t EEPROM_VERSION = 0xcdd4; // This should change if NUM_CYCLES or struct Sched changes. Random.
@@ -24,7 +24,7 @@ const int NUM_MENU_ITEMS = 7;
 const int NUM_CYCLES = 4;
 const int MAX_CYCLE_LENGTH = 240; // minutes
 const int DEFAULT_MANUAL_DURATION = 30; // default for manual_duration
-const int DELAY_SCROLL = 250;
+const int DELAY_SCROLL = 200;
 const int DELAY_SPLASH = 2000;
 const int DAY_IN_MINUTES = 1440;
 const unsigned long DAY_IN_MS = 86400000UL;
@@ -196,7 +196,9 @@ void setup() {
     mySched[i].enabled = false;
   }
 
+  lcd.setMCPType(LTI_TYPE_MCP23017);
   lcd.begin(16, 2);
+  lcd.setBacklight(WHITE);
   pinMode(VALVE_PIN, OUTPUT);
 
   state = s_splash_begin;
